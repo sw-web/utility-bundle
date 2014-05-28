@@ -1,0 +1,26 @@
+{
+    "name": "sw-web/utility-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 utilities",
+    "keywords": ["sw", "symfony", "utility", "lib"],
+    "homepage": "https://github.com/sw-web/utility-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cyril Blanco",
+            "email": "cyril.blanco@sword-group.com"
+        },
+        {
+            "name": "Guillaume Petit",
+            "email": "guillaume.petit@sword-group.com"
+        }
+    ],
+    "require": {
+        "symfony/symfony": "~2.1"
+    },
+    "autoload": {
+        "psr-0": { "Sw\\UtilityBundle": "" }
+    },
+    "target-dir": "Sw/UtilityBundle"
+}
+
