@@ -31,6 +31,10 @@ class SearchableRepository extends EntityRepository
      */
     public function search(QueryBuilder $builder, $predicates)
     {
+        if (!$predicates) {
+            return $builder;
+        }
+
         // Create an annotation reader
         $reader = new AnnotationReader();
 
@@ -46,7 +50,7 @@ class SearchableRepository extends EntityRepository
             $searchable = $reader->getPropertyAnnotation($field, self::ANNOTATION_CLASS);
             if ($searchable) {
                 // If the field is searchable, add a like condition in the OR expression
-                $where->add($builder->expr()->like($builder->getRootAlias() . '.' . $field->getName(), $builder->expr()->literal($predicates)));
+                $where->add($builder->expr()->like($builder->getRootAlias() . '.' . $field->getName(), $builder->expr()->literal('%' . $predicates . '%')));
             }
         }
 
